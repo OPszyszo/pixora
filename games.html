@@ -1,0 +1,281 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Pixora Studios</title>
+  <style>
+    body {
+      font-family: Arial;
+      margin:0;
+      background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
+      color:white;
+    }
+    header {
+      background: rgba(0,0,0,0.5);
+      padding:20px;
+      text-align:center;
+      backdrop-filter: blur(10px);
+    }
+    nav a {
+      margin:10px;
+      color:#38bdf8;
+      text-decoration:none;
+      font-weight:bold;
+    }
+    nav a:hover { color:#22c55e; }
+    .container { padding:40px; text-align:center; }
+    button {
+      padding:12px 25px;
+      margin:10px;
+      border:none;
+      border-radius:12px;
+      background: linear-gradient(45deg, #38bdf8, #22c55e);
+      color:black;
+      cursor:pointer;
+      font-weight:bold;
+      transition:0.3s;
+    }
+    button:hover { transform: scale(1.1); }
+    img { max-width:150px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="https://i.imgur.com/YOURLOGO.png" alt="Pixora Studios Logo">
+  <h1>Pixora Studios</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="games.html">Gry</a>
+    <a href="apps.html">Aplikacje</a>
+    <a href="about.html">O nas</a>
+    <a href="contact.html">Kontakt</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Witaj w Pixora Studios</h2>
+  <p>Tworzymy gry i aplikacje z pasją 🚀</p>
+
+  <button onclick="window.location.href='games.html'">🎮 Gry</button>
+  <button onclick="window.location.href='apps.html'">📱 Aplikacje</button>
+</div>
+
+</body>
+</html>
+
+
+<!-- games.html -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Gry - Pixora Studios</title>
+  <style>
+    body {
+      font-family: Arial;
+      margin:0;
+      background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
+      color:white;
+    }
+
+    header {
+      text-align:center;
+      padding:20px;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+    }
+
+    .games-container {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap:20px;
+      padding:40px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      padding:20px;
+      border-radius:20px;
+      text-align:center;
+      backdrop-filter: blur(10px);
+      transition:0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.03);
+    }
+
+    .card img {
+      width:100%;
+      border-radius:12px;
+      margin-bottom:15px;
+    }
+
+    button {
+      padding:10px 20px;
+      border:none;
+      border-radius:12px;
+      background: linear-gradient(45deg, #22c55e, #38bdf8);
+      cursor:pointer;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    a {
+      display:block;
+      text-align:center;
+      margin:20px;
+      color:#38bdf8;
+      text-decoration:none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🎮 Nasze gry</h1>
+  <p>Sprawdź produkcje Pixora Studios</p>
+</header>
+
+<div class="games-container">
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300x180" alt="Gra 1">
+    <h2>Gra 1</h2>
+    <p>Krótki opis gry...</p>
+    <button onclick="window.location.href='LINK_DO_POBRANIA'">⬇ Pobierz</button>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300x180" alt="Gra 2">
+    <h2>Gra 2</h2>
+    <p>Krótki opis gry...</p>
+    <button onclick="window.location.href='LINK_DO_POBRANIA'">⬇ Pobierz</button>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300x180" alt="Gra 3">
+    <h2>Gra 3</h2>
+    <p>Krótki opis gry...</p>
+    <button onclick="window.location.href='LINK_DO_POBRANIA'">⬇ Pobierz</button>
+  </div>
+
+</div>
+
+<a href="index.html">← Powrót do strony głównej</a>
+
+</body>
+</html>
+
+
+<!-- apps.html -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Aplikacje - Pixora Studios</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: linear-gradient(135deg, #020617, #0f172a);
+      color:white;
+      text-align:center;
+    }
+    .card {
+      background: rgba(255,255,255,0.05);
+      margin:30px auto;
+      padding:20px;
+      border-radius:15px;
+      width:300px;
+      backdrop-filter: blur(10px);
+    }
+    button {
+      padding:10px 20px;
+      border:none;
+      border-radius:10px;
+      background: linear-gradient(45deg, #38bdf8, #22c55e);
+      cursor:pointer;
+      font-weight:bold;
+    }
+  </style>
+</head>
+<body>
+
+<h1>📱 Nasze aplikacje</h1>
+
+<div class="card">
+  <h2>Aplikacja 1</h2>
+  <p>Opis aplikacji...</p>
+  <button onclick="window.location.href='LINK_DO_POBRANIA'">Pobierz</button>
+</div>
+
+<div class="card">
+  <h2>Aplikacja 2</h2>
+  <p>Opis aplikacji...</p>
+  <button onclick="window.location.href='LINK_DO_POBRANIA'">Pobierz</button>
+</div>
+
+<a href="index.html">← Powrót</a>
+
+</body>
+</html>
+
+
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>O nas - Pixora Studios</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: linear-gradient(135deg, #020617, #0f172a);
+      color:white;
+      text-align:center;
+      padding:40px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>O nas</h1>
+<p>Pixora Studios to niezależne studio tworzące gry i aplikacje.</p>
+
+<a href="index.html">← Powrót</a>
+
+</body>
+</html>
+
+
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Kontakt - Pixora Studios</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: linear-gradient(135deg, #020617, #0f172a);
+      color:white;
+      text-align:center;
+      padding:40px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Kontakt</h1>
+<p>Email: kontakt@pixora.pl</p>
+
+<a href="index.html">← Powrót</a>
+
+</body>
+</html>
