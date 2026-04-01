@@ -347,9 +347,14 @@
     </div>
 
     <div class="contact-grid">
-      <!-- Formularz kontaktowy -->
+      <!-- Formularz kontaktowy – wysyła na adres lolekkrakowiak2015@gmail.com -->
       <div class="form-card">
-        <form id="contactForm" action="#" method="post">
+        <form action="https://formsubmit.co/lolekkrakowiak2015@gmail.com" method="POST">
+          <!-- Ukryte pola do konfiguracji FormSubmit -->
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_subject" value="Nowa wiadomość z Pixora Studios!">
+          
           <div class="form-group">
             <label for="name"><i class="fas fa-user"></i> Imię / Nick</label>
             <input type="text" id="name" name="name" placeholder="Wpisz swoje imię lub pseudonim" required>
@@ -364,7 +369,7 @@
           </div>
           <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Wyślij wiadomość</button>
         </form>
-        <p style="font-size: 0.8rem; margin-top: 20px; text-align: center; opacity: 0.7;">* Wysłanie formularza jest równoznaczne z akceptacją polityki prywatności.</p>
+        <p style="font-size: 0.8rem; margin-top: 20px; text-align: center; opacity: 0.7;">* Twoja wiadomość zostanie wysłana bezpośrednio na adres lolekkrakowiak2015@gmail.com</p>
       </div>
 
       <!-- Dane kontaktowe -->
@@ -373,7 +378,7 @@
           <div class="info-icon"><i class="fas fa-envelope"></i></div>
           <div class="info-text">
             <h3>E-mail</h3>
-            <p><a href="mailto:kontakt@pixora.pl">kontakt@pixora.pl</a></p>
+            <p><a href="mailto:lolekkrakowiak2015@gmail.com">lolekkrakowiak2015@gmail.com</a></p>
           </div>
         </div>
         <div class="info-item">
@@ -412,16 +417,6 @@
     </div>
   </div>
 </footer>
-
-<script>
-  // Prosta obsługa formularza – można zastąpić rzeczywistym endpointem (np. Formspree)
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    // Tutaj można dodać wysyłkę przez AJAX lub przekierowanie
-    alert('Dziękujemy! Twoja wiadomość została wysłana. Odpowiemy najszybciej jak to możliwe.');
-    this.reset();
-  });
-</script>
 
 </body>
 </html>
