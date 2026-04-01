@@ -1,226 +1,402 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>Pixora Studios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Pixora Studios | Twórcy niezapomnianych gier</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial;
-      margin:0;
-      background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
-      color:white;
+      font-family: 'Inter', sans-serif;
+      color: #f0f3fa;
+      background: linear-gradient(125deg, #0a0c1a, #0b1428, #0a1025);
+      background-size: 200% 200%;
+      animation: gradientFlow 12s ease infinite;
+      min-height: 100vh;
+      scroll-behavior: smooth;
     }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* custom scroll */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #3b82f6;
+      border-radius: 10px;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header & Nav */
     header {
-      background: rgba(0,0,0,0.5);
-      padding:20px;
-      text-align:center;
-      backdrop-filter: blur(10px);
+      background: rgba(5, 10, 25, 0.55);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    nav a {
-      margin:10px;
-      color:#38bdf8;
-      text-decoration:none;
-      font-weight:bold;
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 18px 0;
     }
-    nav a:hover { color:#22c55e; }
-    .container { padding:40px; text-align:center; }
-    button {
-      padding:12px 25px;
-      margin:10px;
-      border:none;
-      border-radius:12px;
-      background: linear-gradient(45deg, #38bdf8, #22c55e);
-      color:black;
-      cursor:pointer;
-      font-weight:bold;
-      transition:0.3s;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #38bdf8, #22c55e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
-    button:hover { transform: scale(1.1); }
-    img { max-width:150px; }
+    .logo i {
+      font-size: 2rem;
+      color: #22c55e;
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+      color: #38bdf8;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #e2e8f0;
+      transition: 0.2s;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: #22c55e;
+      text-shadow: 0 0 5px #22c55e80;
+    }
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.25s ease;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(95deg, #38bdf8, #22c55e);
+      color: #0a0f1a;
+      box-shadow: 0 5px 15px rgba(34, 197, 94, 0.2);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #38bdf8;
+      color: #38bdf8;
+      box-shadow: none;
+    }
+    .btn-outline:hover {
+      background: #38bdf820;
+      transform: translateY(-3px);
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 20px rgba(34, 197, 94, 0.3);
+    }
+    /* Cards grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 32px;
+      margin: 48px 0;
+    }
+    .game-card, .app-card, .team-card {
+      background: rgba(15, 25, 45, 0.55);
+      backdrop-filter: blur(12px);
+      border-radius: 32px;
+      padding: 28px 20px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      transition: all 0.3s;
+      text-align: center;
+    }
+    .game-card:hover, .app-card:hover, .team-card:hover {
+      transform: translateY(-8px);
+      border-color: #22c55e80;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.5);
+    }
+    .card-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      color: #38bdf8;
+    }
+    .game-card h3, .app-card h3 {
+      font-size: 1.7rem;
+      margin: 12px 0;
+    }
+    .badge {
+      background: #22c55e20;
+      color: #86efac;
+      padding: 4px 12px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      display: inline-block;
+      margin: 12px 0;
+    }
+    .hero {
+      text-align: center;
+      padding: 80px 0 50px;
+    }
+    .hero h1 {
+      font-size: 3.6rem;
+      font-weight: 800;
+      background: linear-gradient(115deg, #fff, #38bdf8, #22c55e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #cbd5e6;
+    }
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin: 40px 0 20px;
+      border-left: 5px solid #22c55e;
+      padding-left: 20px;
+    }
+    footer {
+      background: #030617aa;
+      backdrop-filter: blur(8px);
+      margin-top: 80px;
+      padding: 40px 0 30px;
+      border-top: 1px solid #22c55e30;
+      text-align: center;
+    }
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+    }
+    .social-icons a {
+      color: #e2e8f0;
+      font-size: 1.6rem;
+      margin: 0 12px;
+      transition: 0.2s;
+    }
+    .social-icons a:hover {
+      color: #22c55e;
+    }
+    /* contact form */
+    .contact-form {
+      max-width: 700px;
+      margin: 40px auto;
+      background: rgba(10, 20, 40, 0.6);
+      backdrop-filter: blur(12px);
+      padding: 40px;
+      border-radius: 40px;
+    }
+    .input-group {
+      margin-bottom: 24px;
+    }
+    .input-group input, .input-group textarea {
+      width: 100%;
+      padding: 14px 20px;
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 60px;
+      color: white;
+      font-size: 1rem;
+      transition: 0.2s;
+    }
+    .input-group textarea {
+      border-radius: 28px;
+      resize: vertical;
+    }
+    .input-group input:focus, .input-group textarea:focus {
+      outline: none;
+      border-color: #22c55e;
+      box-shadow: 0 0 8px #22c55e60;
+    }
+    @media (max-width: 780px) {
+      .navbar {
+        flex-direction: column;
+        gap: 16px;
+      }
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+      .container {
+        padding: 0 20px;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+    .download-btn {
+      background: linear-gradient(95deg, #38bdf8, #22c55e);
+      border: none;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: bold;
+      margin-top: 16px;
+      cursor: pointer;
+      transition: 0.2s;
+      color: #0a0f1a;
+    }
+    .download-btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 14px #22c55e60;
+    }
+    .team-img-placeholder {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(145deg, #38bdf8, #22c55e);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #0f172a;
+    }
+    .featured-row {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 40px 0;
+    }
+    .feature-item {
+      flex: 1;
+      min-width: 240px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 32px;
+      padding: 28px;
+      text-align: center;
+      backdrop-filter: blur(4px);
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <img src="https://i.imgur.com/YOURLOGO.png" alt="Pixora Studios Logo">
-  <h1>Pixora Studios</h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="games.html">Gry</a>
-    <a href="apps.html">Aplikacje</a>
-    <a href="about.html">O nas</a>
-    <a href="contact.html">Kontakt</a>
-  </nav>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <i class="fas fa-gamepad"></i> 
+        <span>PIXORA STUDIOS</span>
+      </div>
+      <div class="nav-links">
+        <a href="index.html" class="active">Strona główna</a>
+        <a href="games.html">Gry</a>
+        <a href="apps.html">Aplikacje</a>
+        <a href="about.html">Studio</a>
+        <a href="contact.html">Kontakt</a>
+      </div>
+    </div>
+  </div>
 </header>
 
-<div class="container">
-  <h2>Witaj w Pixora Studios</h2>
-  <p>Tworzymy gry i aplikacje z pasją 🚀</p>
+<main class="container">
+  <div class="hero">
+    <h1>Tworzymy światy, które zapamiętasz</h1>
+    <p>Pixora Studios to niezależne studio gier i aplikacji z pasją do innowacji, pixel artu i emocjonującej rozgrywki. Dołącz do naszej społeczności!</p>
+    <div style="margin-top: 32px;">
+      <a href="games.html" class="btn"><i class="fas fa-rocket"></i> Odkryj gry</a>
+      <a href="about.html" class="btn btn-outline" style="margin-left: 16px;"><i class="fas fa-users"></i> Poznaj studio</a>
+    </div>
+  </div>
 
-  <button onclick="window.location.href='games.html'">🎮 Gry</button>
-  <button onclick="window.location.href='apps.html'">📱 Aplikacje</button>
-</div>
+  <div class="section-title">
+    <i class="fas fa-crown"></i> Najnowsze produkcje
+  </div>
+  <div class="grid">
+    <div class="game-card">
+      <div class="card-icon"><i class="fas fa-dragon"></i></div>
+      <h3>Cyber Wraith</h3>
+      <div class="badge">Nowość 2025</div>
+      <p>Dynamiczny FPS w cyberpunkowym świecie. Modyfikuj broń, hakuj systemy i odkryj prawdę o korporacjach.</p>
+      <button class="download-btn" onclick="alert('Demo dostępne wkrótce! Śledź nasze social media.')">Zobacz więcej <i class="fas fa-arrow-right"></i></button>
+    </div>
+    <div class="game-card">
+      <div class="card-icon"><i class="fas fa-tree"></i></div>
+      <h3>Mystic Roots</h3>
+      <div class="badge">RPG akcji</div>
+      <p>Magiczna kraina, starożytne sekrety. Wciągająca fabuła i rozbudowany system umiejętności.</p>
+      <button class="download-btn" onclick="alert('Zapowiedź już wkrótce!')">Wishlist <i class="fas fa-heart"></i></button>
+    </div>
+    <div class="app-card">
+      <div class="card-icon"><i class="fas fa-palette"></i></div>
+      <h3>PixelForge</h3>
+      <div class="badge">Narzędzie dev</div>
+      <p>Profesjonalny edytor pixel artu dla twórców gier. Animacje, warstwy, eksport do Unity/Godot.</p>
+      <button class="download-btn" onclick="alert('Aplikacja w fazie beta – wkrótce pełna wersja!')">Pobierz beta</button>
+    </div>
+  </div>
 
-</body>
-</html>
+  <div class="featured-row">
+    <div class="feature-item">
+      <i class="fas fa-trophy" style="font-size: 2.5rem; color: #facc15;"></i>
+      <h3 style="margin: 12px 0;">+15 nagród</h3>
+      <p>Docenieni na niezależnych festiwalach gier w Europie.</p>
+    </div>
+    <div class="feature-item">
+      <i class="fas fa-users" style="font-size: 2.5rem; color: #38bdf8;"></i>
+      <h3 style="margin: 12px 0;">50k+ społeczność</h3>
+      <p>Gracze i twórcy ufają naszej marce.</p>
+    </div>
+    <div class="feature-item">
+      <i class="fas fa-code-branch" style="font-size: 2.5rem; color: #22c55e;"></i>
+      <h3 style="margin: 12px 0;">Unreal & Unity</h3>
+      <p>Nowoczesne technologie i autorskie rozwiązania.</p>
+    </div>
+  </div>
+</main>
 
-
-<!-- games.html -->
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <title>Gry - Pixora Studios</title>
-  <style>
-    body {
-      font-family: Arial;
-      background: linear-gradient(135deg, #020617, #0f172a);
-      color:white;
-      text-align:center;
-    }
-    .card {
-      background: rgba(255,255,255,0.05);
-      margin:30px auto;
-      padding:20px;
-      border-radius:15px;
-      width:300px;
-      backdrop-filter: blur(10px);
-    }
-    button {
-      padding:10px 20px;
-      border:none;
-      border-radius:10px;
-      background: linear-gradient(45deg, #22c55e, #38bdf8);
-      cursor:pointer;
-      font-weight:bold;
-    }
-  </style>
-</head>
-<body>
-
-<h1>🎮 Nasze gry</h1>
-
-<div class="card">
-  <h2>Gra 1</h2>
-  <p>Opis gry...</p>
-  <button onclick="window.location.href='LINK_DO_POBRANIA'">Pobierz</button>
-</div>
-
-<div class="card">
-  <h2>Gra 2</h2>
-  <p>Opis gry...</p>
-  <button onclick="window.location.href='LINK_DO_POBRANIA'">Pobierz</button>
-</div>
-
-<a href="index.html">← Powrót</a>
-
-</body>
-</html>
-
-
-<!-- apps.html -->
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <title>Aplikacje - Pixora Studios</title>
-  <style>
-    body {
-      font-family: Arial;
-      background: linear-gradient(135deg, #020617, #0f172a);
-      color:white;
-      text-align:center;
-    }
-    .card {
-      background: rgba(255,255,255,0.05);
-      margin:30px auto;
-      padding:20px;
-      border-radius:15px;
-      width:300px;
-      backdrop-filter: blur(10px);
-    }
-    button {
-      padding:10px 20px;
-      border:none;
-      border-radius:10px;
-      background: linear-gradient(45deg, #38bdf8, #22c55e);
-      cursor:pointer;
-      font-weight:bold;
-    }
-  </style>
-</head>
-<body>
-
-<h1>📱 Nasze aplikacje</h1>
-
-<div class="card">
-  <h2>Aplikacja 1</h2>
-  <p>Opis aplikacji...</p>
-  <button onclick="window.location.href='LINK_DO_POBRANIA'">Pobierz</button>
-</div>
-
-<div class="card">
-  <h2>Aplikacja 2</h2>
-  <p>Opis aplikacji...</p>
-  <button onclick="window.location.href='LINK_DO_POBRANIA'">Pobierz</button>
-</div>
-
-<a href="index.html">← Powrót</a>
-
-</body>
-</html>
-
-
-<!-- about.html -->
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <title>O nas - Pixora Studios</title>
-  <style>
-    body {
-      font-family: Arial;
-      background: linear-gradient(135deg, #020617, #0f172a);
-      color:white;
-      text-align:center;
-      padding:40px;
-    }
-  </style>
-</head>
-<body>
-
-<h1>O nas</h1>
-<p>Pixora Studios to niezależne studio tworzące gry i aplikacje.</p>
-
-<a href="index.html">← Powrót</a>
-
-</body>
-</html>
-
-
-<!-- contact.html -->
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <title>Kontakt - Pixora Studios</title>
-  <style>
-    body {
-      font-family: Arial;
-      background: linear-gradient(135deg, #020617, #0f172a);
-      color:white;
-      text-align:center;
-      padding:40px;
-    }
-  </style>
-</head>
-<body>
-
-<h1>Kontakt</h1>
-<p>Email: kontakt@pixora.pl</p>
-
-<a href="index.html">← Powrót</a>
+<footer>
+  <div class="container footer-content">
+    <div>© 2025 Pixora Studios. Wszystkie prawa zastrzeżone.</div>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-discord"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
